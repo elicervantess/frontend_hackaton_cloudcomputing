@@ -1,0 +1,26 @@
+generarDiagrama:
+  handler: handler.generarDiagrama
+  memorySize: 512
+  environment:
+    VALIDAR_TOKEN_LAMBDA_NAME: ${self:service}-${self:provider.stage}-validarTokenAcceso
+  events:
+    - http:
+        path: generar-diagrama
+
+validarDiagrama:
+  handler: handler.validarDiagrama
+  memorySize: 512
+  environment:
+    VALIDAR_TOKEN_LAMBDA_NAME: ${self:service}-${self:provider.stage}-validarTokenAcceso
+  events:
+    - http:
+        path: validar-diagrama
+
+guardarDiagramaS3:
+  handler: handler.guardarDiagramaS3
+  memorySize: 512
+  environment:
+    VALIDAR_TOKEN_LAMBDA_NAME: ${self:service}-${self:provider.stage}-validarTokenAcceso
+  events:
+    - http:
+        path: guardar-diagrama 
